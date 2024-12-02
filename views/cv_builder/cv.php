@@ -2,7 +2,7 @@
   <?php include "style.css" ?>
 </style>
 
-        <section id = "about-sc" class = "">
+        <section id = "about-sc">
             <div class = "container">
                 <div class = "about-cnt">
                     <form action="" class="cv-form" id = "cv-form">

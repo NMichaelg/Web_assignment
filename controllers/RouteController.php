@@ -6,6 +6,8 @@ $db = $database->getConnection();
 
 
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+$id = isset($_GET['id']) ? intval($_GET['id']) : null; 
+// page=view_cv&id=3
 $base_path = __DIR__ . '/../views/';
 
 switch ($page) {
@@ -21,6 +23,15 @@ switch ($page) {
         break;
     case 'contact_us':
         $file_path = $base_path . 'contact_us/contact_us.php';
+        break;
+    case 'view_cv':
+        if($id !== null){
+             $file_path = $base_path . 'view_cv/view_cv.php';
+            break;
+        }else{
+            $file_path = $base_path . 'home/home.php';
+            break;
+        }
         break;
     default:
         $file_path = $base_path . 'login_reg/login_reg.php';

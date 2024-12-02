@@ -42,7 +42,7 @@
 <div class="banner">
     <h1>Welcome to CV Management</h1>
     <p>Effortlessly create, manage, and share your CV online with ease.</p>
-    <a href="?page=fill_form" class="btn btn-light btn-lg">Create Your CV Now</a>
+    <a href="?page=your_cv" class="btn btn-light btn-lg">Create Your CV Now</a>
 </div>
 
 <div class="features">

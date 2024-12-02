@@ -14,7 +14,7 @@
       <!-- Team Member 1 -->
       <div class="col-md-3">
         <div class="card text-center shadow-sm">
-          <img src="asset/ThaiAn.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Team Member 1" style="width: 100px; height: 100px;">
+          <img src="assets/ThaiAn.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Team Member 1" style="width: 100px; height: 100px;">
           <div class="card-body">
             <h5 class="card-title">Bùi Phạm Thái An</h5>
             <p class="card-text">UI/UX Designer</p>

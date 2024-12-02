@@ -1,27 +1,26 @@
 <?php
-// Include database configuration file
 include_once __DIR__ . '/../config/Database.php';
 
-// Instantiate database and get connection
+
 $database = new Database();
 $db = $database->getConnection();
 
-// Check if the 'page' parameter exists in the URL
-$page = isset($_GET['page']) ? $_GET['page'] : 'home'; // Default to 'home' if no page is set
 
-// Define the base path for your pages folder
+$page = isset($_GET['page']) ? $_GET['page'] : 'home'; 
+
+
 $base_path = __DIR__ . '/../views/';
 
-// Determine the file to include based on the page
+
 switch ($page) {
     case 'home':
-        $file_path = $base_path . '';
+        $file_path = $base_path . 'home/home.php';
         break;
-    case 'views_cvs':
-        $file_path = $base_path . '';
+    case 'your_cv':
+        $file_path = $base_path . 'cv_builder/cv.php';
         break;
     case 'contact_us':
-        $file_path = $base_path . '';
+        $file_path = $base_path . 'contact_us/contact_us.php';
         break;
     default:
         $file_path = $base_path . 'login_reg/login_reg.php';
@@ -30,7 +29,12 @@ switch ($page) {
 
 // Check if the file exists before including it
 if (file_exists($file_path)) {
-    include $file_path;
+    if (!isset($_SESSION['user_id']) && $page == 'your_cv') {
+        include 'views/login_reg/login_reg.php'; 
+        exit();  // Make sure the script stops executing after the redirect
+    }else{
+        include $file_path;
+    }
 } else {
     // Display a user-friendly error message if the file is missing
     echo "<h2>404 - Page not found</h2>";

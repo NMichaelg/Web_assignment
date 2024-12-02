@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Resume Page</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- custom css -->
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+
+
+
         <section id = "about-sc" class = "">
             <div class = "container">
                 <div class = "about-cnt">
@@ -492,6 +483,3 @@
     generateCV();
 }
     </script>
-    
-    </body>
-</html>

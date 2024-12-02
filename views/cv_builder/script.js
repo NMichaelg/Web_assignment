@@ -401,7 +401,31 @@ function previewImage() {
     imageShow.src = ofEvent.target.result
   }
 }
+function submit_cv(){
+  const formData = getInputs(); // Fetch form inputs using your function
 
+  fetch('views/cv_builder/process_form.php', {
+  method: 'POST',
+  headers: {
+      'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(formData),
+  })
+  .then((response) => response.json())
+  .then((data) => {
+      if (data.status === 'success') {
+      console.log(data.message);
+      alert('Form submitted successfully!');
+      } else {
+      console.error(data.message);
+      alert('An error occurred: ' + data.message);
+      }
+  })
+  .catch((error) => {
+      console.error('Error:', error);
+      alert(error);
+  });
+}
 
 
 

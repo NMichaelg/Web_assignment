@@ -1,8 +1,16 @@
-<style>
-  <?php include "style.css" ?>
-</style>
-
-        <section id = "about-sc">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Resume Page</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- custom css -->
+        <style><?php include "style.css" ?></style>
+        </head>
+        <body>
+        <section id = "about-sc" class = "">
             <div class = "container">
                 <div class = "about-cnt">
                     <form action="" class="cv-form" id = "cv-form">
@@ -283,7 +291,7 @@
                                             </div>
                                             <div class = "form-elem">
                                                 <label for = "" class = "form-label">Year</label>
-                                                <input name = "skill_year" type = "text" class = "form-control skill_year" id = "" onkeyup="generateCV()">
+                                                <input name = "skill_year" type = "text" class = "form-control skill" id = "" onkeyup="generateCV()">
                                                 <span class="form-text"></span>
                                             </div>
                                             
@@ -293,6 +301,9 @@
                                 </div>
                                 <button type = "button" data-repeater-create value = "Add" class = "repeater-add-btn" group="group-e">+</button>
                             </div>
+                        </div>
+                        <div class = "container">
+                            <button type = "button" class = "print-btn btn btn-primary" onclick="submit_cv()">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -370,7 +381,6 @@
                             </div>
                             <div class = "experiences-items preview-blk-list" id = "experiences"></div>
                         </div>
-
                         <div class = "preview-blk">
                             <div class = "preview-blk-title">
                                 <h3>projects</h3>
@@ -387,7 +397,7 @@
                 <button type = "button" class = "print-btn btn btn-primary" onclick="printCV()">Print CV</button>
             </div>
         </section>
-    <script src="script.js"></script>
+    <script><?php include "script.js" ?></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
          const geonamesUsername = "xitrumbumbum"; 
@@ -484,3 +494,6 @@
     generateCV();
 }
     </script>
+    
+    </body>
+</html>

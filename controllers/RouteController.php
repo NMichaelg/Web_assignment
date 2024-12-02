@@ -1,4 +1,6 @@
 <?php
+// Check if the 'page' parameter exists in the URL
+$page = isset($_GET['page']) ? $_GET['page'] : ''; // Default to 'home'
 include_once __DIR__ . '/../config/Database.php';
 
 $database = new Database();
@@ -7,6 +9,7 @@ $db = $database->getConnection();
 
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 $base_path = __DIR__ . '/../views/';
+$file_path = '';
 
 switch ($page) {
     case 'home':

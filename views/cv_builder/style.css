@@ -389,6 +389,13 @@ textarea{
 .address-container select{
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
+.emailShow{
+    display: inline-block;
+    display: flex;
+    gap: 10px;
+    max-width: 100px;
+    text-overflow: ellipsis;
+}
 .form-control{
     border-radius: none;
     border: 1px solid rgba(0, 0, 0, 0.1);

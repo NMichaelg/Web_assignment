@@ -33,17 +33,17 @@
                                 <div class = "cols-3">
                                     <div class = "form-elem">
                                         <label for = "" class = "form-label">First Name</label>
-                                        <input name = "firstname" type = "text" class = "form-control firstname" id = "" onkeyup="generateCV()" placeholder="e.g. Anh">
+                                        <input name = "fname" type = "text" class = "form-control fname" id = "" onkeyup="handleKeyUp(event)" placeholder="e.g. Anh">
                                         <span class="form-text"></span>
                                     </div>
                                     <div class = "form-elem">
                                         <label for = "" class = "form-label">Middle Name <span class = "opt-text">(optional)</span></label>
-                                        <input name = "middlename" type = "text" class = "form-control middlename" id = "" onkeyup="generateCV()" placeholder="e.g. Van">
+                                        <input name = "mname" type = "text" class = "form-control mname" id = "" onkeyup="generateCV()" placeholder="e.g. Van">
                                         <span class="form-text"></span>
                                     </div>
                                     <div class = "form-elem">
                                         <label for = "" class = "form-label">Last Name</label>
-                                        <input name = "lastname" type = "text" class = "form-control lastname" id = "" onkeyup="generateCV()" placeholder="e.g. Nguyen">
+                                        <input name = "lname" type = "text" class = "form-control lname" id = "" onkeyup="generateCV()" placeholder="e.g. Nguyen">
                                         <span class="form-text"></span>
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@
                                                 <div class = "cv-form-row" >
                                                     <div class = "form-elem" data-repeater-item>
                                                 
-                                                        <input name = "phoneno" type = "text" class = "form-control phoneno" id = "" onkeyup="generateCV()" placeholder="e.g. 456-768-798, 567.654.002">
+                                                        <input name = "phone" type = "text" class = "form-control phone" id = "" onkeyup="generateCV()" placeholder="e.g. 456-768-798, 567.654.002">
                                                         <span class="form-text"></span>
                                                     </div>
                                                     <button data-repeater-delete type = "button" class = "repeater-remove-btn" group="group-e" style="top:5px; right:5px;">-</button>
@@ -86,13 +86,13 @@
                                         <div class = "repeater" data-repeater-list = "group-g">
                                             <div data-repeater-item>
                                                 <div class = "cv-form-row" >
-                                                    <div class="address-container">
+                                                    <div class="address-container" style="width: 100%;">
                                                         
                                                         <div class = "form-elem cols-3">
-                                                            <select name="country" id="country">
+                                                            <select name="country" id="country" class="country" onchange="generateCV()">
                                                                 <option value="">-- Select Country --</option>
                                                             </select>
-                                                            <select name="" id="city">
+                                                            <select name="" id="city" class="city" onchange="generateCV()">
                                                                 <option value="">-- Select City (Province) --</option>
                                                             </select>
                                                             <input name="street" type="text" class="form-control street" id="" onkeyup="generateCV()" placeholder="e.g. 268 Ly Thuong Kiet Street"/>
@@ -291,7 +291,7 @@
                                             </div>
                                             <div class = "form-elem">
                                                 <label for = "" class = "form-label">Year</label>
-                                                <input name = "skill" type = "text" class = "form-control skill" id = "" onkeyup="generateCV()">
+                                                <input name = "skill_year" type = "text" class = "form-control skill" id = "" onkeyup="generateCV()">
                                                 <span class="form-text"></span>
                                             </div>
                                             
@@ -313,13 +313,10 @@
                     <div class = "preview-cnt-l bg-green text-white">
                         <div class = "preview-blk">
                             <div class = "preview-image">
-                                <img src = "" alt = "" id = "image_dsp"> 
+                                <img src = "" alt = "" id = "image"> 
                             </div>
                             <div class = "preview-item preview-item-name">
-                                <span class = "preview-item-val fw-6" id = "fullname_dsp"></span>
-                            </div>
-                            <div class = "preview-item">
-                                <span class = "preview-item-val text-uppercase fw-6 ls-1" id = "designation_dsp"></span>
+                                <span class = "preview-item-val fw-6" id = "fullname"></span>
                             </div>
                         </div>
 
@@ -329,16 +326,17 @@
                             </div>
                             <div class = "preview-blk-list">
                                 <div class = "preview-item">
-                                    <span class = "preview-item-val" id = "phoneno_dsp"></span>
+                                    <p>Phone: </p>
+                                    <div class = "preview-item-val" id = "phone"></div>
+                                </div>
+                                <div class = "preview-item emailShow" >
+                                    <span>Email: </span><span class = "preview-item-val" id = "email"></span>
                                 </div>
                                 <div class = "preview-item">
-                                    <span class = "preview-item-val" id = "email_dsp"></span>
+                                    <div class = "preview-item-val" id = "address"></div>
                                 </div>
                                 <div class = "preview-item">
-                                    <span class = "preview-item-val" id = "address_dsp"></span>
-                                </div>
-                                <div class = "preview-item">
-                                    <span class = "preview-item-val" id = "summary_dsp"></span>
+                                    <span class = "preview-item-val" id = "summary"></span>
                                 </div>
                             </div>
                         </div>
@@ -347,7 +345,7 @@
                             <div class = "preview-blk-title">
                                 <h3>skills</h3>
                             </div>
-                            <div class = "skills-items preview-blk-list" id = "skills_dsp">
+                            <div class = "skills-items preview-blk-list" id = "skills">
                                 <!-- skills list here -->
                             </div>
                         </div>
@@ -358,34 +356,34 @@
                             <div class = "preview-blk-title">
                                 <h3>Objectives</h3>
                             </div>
-                            <div class = "achievements-items preview-blk-list" id = "achievements_dsp"></div>
+                            <div class = "achievements-items preview-blk-list" id = "achievements"></div>
                         </div>
                         <div class = "preview-blk">
                             <div class = "preview-blk-title">
                                 <h3>Achievements</h3>
                             </div>
-                            <div class = "achievements-items preview-blk-list" id = "achievements_dsp"></div>
+                            <div class = "achievements-items preview-blk-list" id = "achievements"></div>
                         </div>
 
                         <div class = "preview-blk">
                             <div class = "preview-blk-title">
                                 <h3>educations</h3>
                             </div>
-                            <div class = "educations-items preview-blk-list" id = "educations_dsp"></div>
+                            <div class = "educations-items preview-blk-list" id = "educations"></div>
                         </div>
 
                         <div class = "preview-blk">
                             <div class = "preview-blk-title">
                                 <h3>experiences</h3>
                             </div>
-                            <div class = "experiences-items preview-blk-list" id = "experiences_dsp"></div>
+                            <div class = "experiences-items preview-blk-list" id = "experiences"></div>
                         </div>
 
                         <div class = "preview-blk">
                             <div class = "preview-blk-title">
                                 <h3>projects</h3>
                             </div>
-                            <div class = "projects-items preview-blk-list" id = "projects_dsp"></div>
+                            <div class = "projects-items preview-blk-list" id = "projects"></div>
                         </div>
                     </div>
                 </div>
@@ -397,19 +395,10 @@
                 <button type = "button" class = "print-btn btn btn-primary" onclick="printCV()">Print CV</button>
             </div>
         </section>
-
+    <script src="script.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
          const geonamesUsername = "xitrumbumbum"; 
-        let map, marker;
-
-    
-        function initMap() {
-            map = L.map('map').setView([20, 0], 2);  
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-        }
         async function fetchCountries() {
             document.getElementById('country').disabled = false;
             document.getElementById('city').disabled = true;
@@ -498,6 +487,11 @@
                 });
             }
         }
+        function handleKeyUp(e) {
+    console.log(e.target.value);
+    generateCV();
+}
     </script>
+    
     </body>
 </html>

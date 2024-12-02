@@ -1,5 +1,6 @@
-
-
+<style>
+  <?php include "style.css" ?>
+</style>
 
         <section id = "about-sc" class = "">
             <div class = "container">

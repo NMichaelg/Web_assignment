@@ -7,7 +7,13 @@
     <style>
       <?php include "style.css" ?>
     </style>    
-  <script src="script.js" defer></script>
+  <style>
+  .white-border-background {
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+  }
+</style>
   </head>
   <body>
     <!-- Container -->
@@ -30,13 +36,18 @@
           View CVs
         </a>
         <a
+          href="?page=fill_form"
+        >
+          Make new CV
+         </a>
+        <a
           href="?page=contact_us"
         >
           Contact Us
         </a>
       </div>
     </nav>
-    <div id="main-content">
+    <div id="main-content" class = "white-border-background">
       <?php include 'controllers/RouteController.php'; ?>
     </div>
   </body>

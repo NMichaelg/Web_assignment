@@ -7,8 +7,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- custom css -->
-    </head>
-    <body>
+        <style><?php include "style.css" ?></style>
+        </head>
+        <body>
         <section id = "about-sc" class = "">
             <div class = "container">
                 <div class = "about-cnt">

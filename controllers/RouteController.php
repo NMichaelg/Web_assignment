@@ -1,38 +1,37 @@
 <?php
-// Include database configuration file
-include_once __DIR__ . '/../config/Database.php';
-
-// Instantiate database and get connection
-$database = new Database();
-$db = $database->getConnection();
-
 // Check if the 'page' parameter exists in the URL
-$page = isset($_GET['page']) ? $_GET['page'] : 'home'; // Default to 'home' if no page is set
+$page = isset($_GET['page']) ? $_GET['page'] : ''; // Default to 'home'
 
 // Define the base path for your pages folder
 $base_path = __DIR__ . '/../views/';
+$file_path = '';
 
-// Determine the file to include based on the page
 switch ($page) {
     case 'home':
-        $file_path = $base_path . '';
+        $file_path = $base_path . 'home.php';
         break;
-    case 'views_cvs':
-        $file_path = $base_path . '';
+    case 'views_cv':
+        $file_path = $base_path . 'show_cv/show_cv.php';
         break;
     case 'contact_us':
-        $file_path = $base_path . '';
+        $file_path = $base_path . 'contact_us.php';
+        break;
+    case 'fill_form':
+        $file_path = $base_path . 'cv_form/cv_form.php';
         break;
     default:
         $file_path = $base_path . 'login_reg/login_reg.php';
         break;
 }
 
-// Check if the file exists before including it
-if (file_exists($file_path)) {
+// Debugging: Output resolved file path
+//var_dump($file_path);
+
+if (is_dir($file_path)) {
+    echo "<h2>Error: Path points to a directory, not a file</h2>";
+} elseif (file_exists($file_path)) {
     include $file_path;
 } else {
-    // Display a user-friendly error message if the file is missing
     echo "<h2>404 - Page not found</h2>";
     echo "<p>The page you are looking for does not exist.</p>";
 }

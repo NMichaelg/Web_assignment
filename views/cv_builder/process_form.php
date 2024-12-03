@@ -1,7 +1,7 @@
 <?php
+session_start();
 // Enable error reporting for debugging (optional)
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+  
 
 // Database connection settings
 include '../../config/database.php';
@@ -15,6 +15,9 @@ try {
     if ($data) {
         // Extract the data
         $user_id = $_SESSION['user_id'] ;
+        // if (!isset($_SESSION['user_id'])){
+        //     throw new Exception("Invalid user_id");
+        // }
         if (!isset($_SESSION['user_id'])){
             throw new Exception("Invalid user_id");
         }
@@ -34,13 +37,14 @@ try {
         $db->beginTransaction();
 
         // Insert into user_cv (assuming 'id' of 1 for simplicity, adjust according to your application)
-        $stmt = $db->prepare("INSERT INTO user_cv (id, fname, mname, lname, email) VALUES (:id, :fname, :mname, :lname, :email)");
+        $stmt = $db->prepare("INSERT INTO user_cv (id, fname, mname, lname, email,public) VALUES (:id, :fname, :mname, :lname, :email,:public)");
         $stmt->execute([
             ':id' => $user_id, // Replace with the actual user id or fetch dynamically
             ':fname' => $firstname,
             ':mname' => $middlename,
             ':lname' => $lastname,
-            ':email' => $email
+            ':email' => $email,
+            ':public' => 0
         ]);
 
         // Insert into user_address

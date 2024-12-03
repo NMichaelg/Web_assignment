@@ -1,0 +1,6 @@
+[03-Dec-2024 04:58:36 Europe/Berlin] PHP Warning:  Undefined global variable $_SESSION in C:\xampp\htdocs\Web_assignment\views\cv_builder\process_form.php on line 19
+[03-Dec-2024 04:58:36 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Web_assignment\views\cv_builder\process_form.php on line 19
+[03-Dec-2024 04:58:36 Europe/Berlin] PHP Fatal error:  Uncaught Exception: Invalid user_id in C:\xampp\htdocs\Web_assignment\views\cv_builder\process_form.php:21
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Web_assignment\views\cv_builder\process_form.php on line 21

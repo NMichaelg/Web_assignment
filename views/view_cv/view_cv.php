@@ -192,9 +192,14 @@
             return;
         }
 
-        fetch(`views/view_cv/find_cv.php?id=${id}`)
+        console.log('Id: ',id);
+        
+        fetch(`config/find_cv.php?id=${id}`,{method:'GET',headers: {
+      'Content-Type': 'application/json',
+  }})
             .then(response => {
                 if (!response.ok) throw new Error("Failed to fetch data.");
+                console.log('Response: ',response);
                 return response.json();
             })
             .then(data => {
@@ -209,7 +214,7 @@
 
                     document.getElementById('fullname').textContent = `${cv_info.fname || ''} ${cv_info.mname || ''} ${cv_info.lname || ''}`.trim();
                     document.getElementById('email').textContent = cv_info.email || 'Not provided';
-                    document.getElementById('image').src = cv_info.img || 'default-profile.png';
+                    document.getElementById('image').src = cv_info.img || 'Web_assignment/assets/default.png';
 
                     document.getElementById('phone').innerHTML = phones.length 
                         ? phones.map(phone => `<div>${phone.phone}</div>`).join('') 

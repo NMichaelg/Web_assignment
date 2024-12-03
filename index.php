@@ -27,7 +27,6 @@ session_start()
         <nav>
           <ul class="nav" id="navBarItem">
             <li class="nav-item"><a href="index.php?page=home" class="nav-link text-white">Home</a></li>
-            <li class="nav-item"><a href="index.php?page=views_cv" class="nav-link text-white">View CV</a></li>
             <li class="nav-item"><a href="index.php?page=your_cv" class="nav-link text-white">Make new CV</a></li>
             <li class="nav-item"><a href="index.php?page=contact_us" class="nav-link text-white">Contact Us</a></li>
             <?php

@@ -15,7 +15,7 @@ try {
     if ($data) {
         // Extract the data
         $user_id = $_SESSION['user_id'] ;
-        if isset($_SESSION['user_id'])!{
+        if (!isset($_SESSION['user_id'])){
             throw new Exception("Invalid user_id");
         }
         $firstname = $data['firstname'];

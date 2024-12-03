@@ -4,7 +4,8 @@ session_start();
 $_SESSION = [];
 
 session_destroy();
-header("Location: /Web_assignment/index.php");
+$redirectUrl = $_SERVER['HTTP_REFERER'] ?? '/Web_assignment/index.php';
+header("Location: $redirectUrl");
 
 exit();
 

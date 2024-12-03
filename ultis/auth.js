@@ -33,7 +33,10 @@ document
         console.log(xhr.responseText)
         const res = JSON.parse(xhr.responseText)
         if (res.status === "success") {
-          window.location.href = "index.php"
+          const redirectUrl =
+            localStorage.getItem("redirect_after_login") || "index.php"
+            window.location.href = redirectUrl;
+            localStorage.removeItem("redirect_after_login")
         } else {
           // Error handling for login failure
           let errorMessages = res.errors.join("<br>")
@@ -72,7 +75,9 @@ document
         console.log(xhr.responseText)
         const res = JSON.parse(xhr.responseText)
         if (res.status === "success") {
-          window.location.href = "index.php"
+          localStorage.getItem("redirect_after_login") || "index.php"
+          window.location.href = redirectUrl
+          localStorage.removeItem("redirect_after_login")
         } else {
           // Error handling for registration failure
           let errorMessages = res.errors.join("<br>")
@@ -91,3 +96,4 @@ document
 
 // Initialize with login form visible
 toggleForm("login")
+

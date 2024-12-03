@@ -19,7 +19,7 @@
                                 <h3>objectives</h3>
                             </div>
                             <div class = "">
-                                <textarea class="objectives-text">
+                                <textarea class="objectives-text" onkeyup="generateCV()">
 
                                 </textarea>
                             </div>
@@ -291,7 +291,7 @@
                                             </div>
                                             <div class = "form-elem">
                                                 <label for = "" class = "form-label">Year</label>
-                                                <input name = "skill_year" type = "text" class = "form-control skill" id = "" onkeyup="generateCV()">
+                                                <input name = "skill_year" type = "text" class = "form-control skill_year" id = "" onkeyup="generateCV()">
                                                 <span class="form-text"></span>
                                             </div>
                                             
@@ -359,7 +359,7 @@
                             <div class = "preview-blk-title">
                                 <h3>Objectives</h3>
                             </div>
-                            <div class = "achievements-items preview-blk-list" id = "achievements"></div>
+                            <span class = "achievements-items preview-blk-list" id = "objectives"></span>
                         </div>
                         <div class = "preview-blk">
                             <div class = "preview-blk-title">

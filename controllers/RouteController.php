@@ -36,8 +36,11 @@ switch ($page) {
             break;
         }
         break;
-    default:
+    case 'login': 
         $file_path = $base_path . 'login_reg/login_reg.php';
+        break;
+    default:
+        $file_path = $base_path . 'home/home.php';
         break;
 }
 

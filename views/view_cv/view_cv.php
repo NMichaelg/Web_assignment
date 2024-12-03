@@ -1,3 +1,7 @@
+<?php
+    $is_logged_in = isset($_SESSION['user_id']) ? true : false;
+?>
+
 <style>
     <?php
         include 'style.css'
@@ -184,6 +188,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        var isLoggedIn = <?php echo json_encode($is_logged_in); ?>;
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('id');
 
@@ -193,7 +198,7 @@
         }
 
         console.log('Id: ',id);
-        
+
         fetch(`config/find_cv.php?id=${id}`,{method:'GET',headers: {
       'Content-Type': 'application/json',
   }})
@@ -207,10 +212,20 @@
                     document.getElementById('no-cv-message').style.display = 'block';
                     document.getElementById('preview-sc').style.display = 'none';
                 } else {
+                    if(!isLoggedIn){
+                    if(data.cv_info.public == 0){
+                        localStorage.setItem('redirect_after_login', window.location.href);
+
+                        alert('You need to log in to view this CV.');
+                        window.location.href = 'index.php?page=login';
+                        return;
+                    }
+                }
                     document.getElementById('no-cv-message').style.display = 'none';
                     document.getElementById('preview-sc').style.display = 'block';
 
                     const { cv_info, phones, addresses, achievements, experiences, educations, projects, skills } = data;
+
 
                     document.getElementById('fullname').textContent = `${cv_info.fname || ''} ${cv_info.mname || ''} ${cv_info.lname || ''}`.trim();
                     document.getElementById('email').textContent = cv_info.email || 'Not provided';

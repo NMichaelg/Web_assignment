@@ -1,6 +1,22 @@
 <style>
   <?php include "login_reg.css" ?>
+
 </style>
+<?php
+    $is_logged_in = isset($_SESSION['user_id']) ? true : false;
+?>
+<script>
+  var isLoggedIn = <?php echo json_encode($is_logged_in); ?>;
+  if(isLoggedIn){
+    const redirectUrl = localStorage.getItem("redirect_after_login")
+
+  if (redirectUrl) {
+    window.location.href = redirectUrl
+    localStorage.removeItem("redirect_after_login")
+  }
+  }
+
+</script>
 <script src="ultis/auth.js" defer></script>
 <div class="big-container">
 <div class="containerh">

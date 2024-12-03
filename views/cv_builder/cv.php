@@ -442,6 +442,7 @@
             ['group-a','group-b','group-c','group-d','group-e','group-f','group-g'].forEach(group=>{
                 initialize_repeater(group)
             })
+            
         })
         function initialize_repeater(group){
             const repeaterContainer = document.querySelector(`[data-repeater-list="${group}"]`);

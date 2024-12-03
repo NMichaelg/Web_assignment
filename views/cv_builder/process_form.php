@@ -15,9 +15,6 @@ try {
     if ($data) {
         // Extract the data
         $user_id = $_SESSION['user_id'] ;
-        // if (!isset($_SESSION['user_id'])){
-        //     throw new Exception("Invalid user_id");
-        // }
         if (!isset($_SESSION['user_id'])){
             throw new Exception("Invalid user_id");
         }
@@ -32,9 +29,35 @@ try {
         $educations = $data['educations']; // Array of educations
         $projects = $data['projects']; // Array of projects
         $skills = $data['skills']; // Array of skills
+        $checkbox = $data['public'];
 
         // Start a transaction to handle multiple inserts
         $db->beginTransaction();
+
+        $stmt = $db->prepare("DELETE FROM user_cv WHERE id = :id");
+        $stmt->execute([':id'=>$user_id]);
+
+        $stmt = $db->prepare("DELETE FROM user_achievement WHERE id = :id");
+        $stmt->execute([':id'=>$user_id]);
+
+        $stmt = $db->prepare("DELETE FROM user_address WHERE id = :id");
+        $stmt->execute([':id'=>$user_id]);
+
+        $stmt = $db->prepare("DELETE FROM user_education WHERE id = :id");
+        $stmt->execute([':id'=>$user_id]);
+
+        $stmt = $db->prepare("DELETE FROM user_experience WHERE id = :id");
+        $stmt->execute([':id'=>$user_id]);
+
+        $stmt = $db->prepare("DELETE FROM user_phone WHERE id = :id");
+        $stmt->execute([':id'=>$user_id]);
+        
+        $stmt = $db->prepare("DELETE FROM user_project WHERE id = :id");
+        $stmt->execute([':id'=>$user_id]);
+
+        $stmt = $db->prepare("DELETE FROM user_skill WHERE id = :id");
+        $stmt->execute([':id'=>$user_id]);
+
 
         // Insert into user_cv (assuming 'id' of 1 for simplicity, adjust according to your application)
         $stmt = $db->prepare("INSERT INTO user_cv (id, fname, mname, lname, email,public) VALUES (:id, :fname, :mname, :lname, :email,:public)");

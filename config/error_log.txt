@@ -1,0 +1,14 @@
+[03-Dec-2024 05:58:41 Europe/Berlin] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\Web_assignment\config\changePublic.php on line 10
+[03-Dec-2024 05:59:26 Europe/Berlin] PHP Warning:  Undefined global variable $_SESSION in C:\xampp\htdocs\Web_assignment\config\changePublic.php on line 10
+[03-Dec-2024 05:59:26 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Web_assignment\config\changePublic.php on line 10
+[03-Dec-2024 05:59:42 Europe/Berlin] PHP Warning:  Undefined variable $update_stmt in C:\xampp\htdocs\Web_assignment\config\changePublic.php on line 34
+[03-Dec-2024 05:59:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in C:\xampp\htdocs\Web_assignment\config\changePublic.php:34
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Web_assignment\config\changePublic.php on line 34
+[03-Dec-2024 06:00:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on string in C:\xampp\htdocs\Web_assignment\config\changePublic.php:34
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Web_assignment\config\changePublic.php on line 34
+[03-Dec-2024 06:01:16 Europe/Berlin] Error fetching CV data: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+[03-Dec-2024 06:01:50 Europe/Berlin] Error fetching CV data: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens

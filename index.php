@@ -43,8 +43,11 @@ session_start()
                         <p style='font-weight:700;'>".$_SESSION['username']."</p>
                           </div>
                       </li>
+
                     <li><i class='fa-solid fa-gears'></i> Setting accounts</li>
+                    <li><a href='config/changePublic.php' style='text-decoration:none;color:black;'><i class='fa-solid fa-eye'></i> Change CV privacy</a></li>
                       <li><a href='config/logout.php' style='text-decoration:none;color:black;'><i class='fa-solid fa-arrow-right-from-bracket'></i> Log out</a></li>
+
                   </ul>
                 </div>
               </div>";

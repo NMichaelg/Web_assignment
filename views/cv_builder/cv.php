@@ -302,6 +302,9 @@
                                 <button type = "button" data-repeater-create value = "Add" class = "repeater-add-btn" group="group-e">+</button>
                             </div>
                         </div>
+                        <label>
+                            <input type="checkbox" name="public" value="1"> Public
+                        </label>
                         <div class = "container">
                             <button type = "button" class = "print-btn btn btn-primary" onclick="submit_cv()">Submit</button>
                         </div>
@@ -442,7 +445,7 @@
             ['group-a','group-b','group-c','group-d','group-e','group-f','group-g'].forEach(group=>{
                 initialize_repeater(group)
             })
-            
+
         })
         function initialize_repeater(group){
             const repeaterContainer = document.querySelector(`[data-repeater-list="${group}"]`);
